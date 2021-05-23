@@ -9,7 +9,7 @@ Application of Reinforcement learning, Q-learning and neural networks in stock t
 **Results**
 
 1. Best Window size for each stock amongst 5,10, 15 and 20 day window
-https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/Profit%20vs%20Window%20Size.png
+![Profit vs Window size](https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/Profit%20vs%20Window%20Size.png)
 
 
 
@@ -17,40 +17,40 @@ https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/Profit%20vs
    Buying ratio is fraction of cash balance that can be used to BUY stock. 
    Sell ratio is fraction of stock inventory that can sold.
 
-2.1 Profit Without draw limit, sell and buy volume = maximum 1 stock each day
+   1. Profit Without draw limit, sell and buy volume = maximum 1 stock each day
 
-- Apple : https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AAPL_2019/10/AAPL/profit:418.0.png
+      - Apple : Profit: $418.0 ![](https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AAPL_2019/10/AAPL/profit:418.0.png)
 
-- Google :
+      - Google :
 
-- Amazon : 
-
-
-2.2 Profit with draw limit of $20000 and Volume ratio =
-
-- Apple :
-
-- Google :
-
-- Amazon : https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AMZN_2019/20/AMZN/profit:1324.0.png
+      - Amazon : 
 
 
-2.3 Profit with draw limit of $20000 and Volume ratio =
+   2. Profit with draw limit of $20000 and Volume ratio =
 
-- Apple :
+      - Apple :
 
-- Google :
+      - Google :
 
-- Amazon : 
+      - Amazon : Profit: $1324.0 ![Amazon](https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AMZN_2019/20/AMZN/profit:1324.0.png)
 
 
-2.4 Profit with draw limit of $20000 and Volume ratio : 
+   3. Profit with draw limit of $20000 and Volume ratio =
 
-- Apple :
+      - Apple :
 
-- Google :
+      - Google :
 
-- Amazon : 
+      - Amazon : 
+
+
+   4. Profit with draw limit of $20000 and Volume ratio : 
+
+      - Apple :
+
+      - Google :
+
+      - Amazon : 
 
 
 
