@@ -30,7 +30,10 @@ sell_points = []
 total_cash = 20000
 initial_cash = total_cash
 min_cash_reserve = total_cash
-do_single_cell = False
+
+# --- Control Params --------- #
+do_single_num = False
+limit_on_cash = True
 volume_ratio = 0.25
 
 for t in range(l):
@@ -40,8 +43,8 @@ for t in range(l):
 	next_state = getState(data, t + 1, window_size + 1)
 	reward = 0
 
-	if action == 1 and total_cash >= data[t]: # buy
-		num_to_buy = max(math.ceil((total_cash / data[t]) * volume_ratio), 1)
+	if action == 1 and (not limit_on_cash or (limit_on_cash and total_cash >= data[t])): # buy
+		num_to_buy = 1 if do_single_num else max(math.ceil((total_cash / data[t]) * volume_ratio), 1)
 		agent.inventory.extend([data[t]]*num_to_buy)
 		print("Buy: " + formatPrice(data[t]), "| # Shares: ", num_to_buy)
 		total_cash -= data[t]*num_to_buy
@@ -50,7 +53,7 @@ for t in range(l):
 
 	elif action == 2 and len(agent.inventory) > 0: # sell
 		current_inventory = len(agent.inventory)
-		num_to_sell = 1 if do_single_cell else math.ceil(current_inventory * volume_ratio)
+		num_to_sell = 1 if do_single_num else math.ceil(current_inventory * volume_ratio)
 		to_sell, agent.inventory = agent.inventory[:num_to_sell], agent.inventory[num_to_sell:]
 		bought_price = sum(to_sell)
 		sell_price = data[t]*num_to_sell
@@ -65,14 +68,15 @@ for t in range(l):
 	state = next_state
 
 	if done:
+		max_draw = initial_cash - min_cash_reserve
 		print("--------------------------------")
 		print(stock_name + " Total Profit: " + formatPrice(total_profit))
-		print("Max Draw: " + str(initial_cash - min_cash_reserve))
+		print("Max Draw: " + str(max_draw))
 		print("--------------------------------")
 		result_dir = "results/" + stock_name + "/" + str(window_size) + "/" + model_name.split("/")[0] + "/"
 		if not os.path.isdir(result_dir):
 			os.makedirs(result_dir)
-		figure = "profit:{}.png".format(round(total_profit,0))
+		figure = "profit:{}_draw:{}_{}.png".format(round(total_profit,0), math.ceil(max_draw), 'single' if do_single_num else 'multiple' + str(volume_ratio))
 		plt.figure(figsize = (20, 10))
 		plt.plot(data, label = stock_name, c = 'black')
 		buy_points = np.array(buy_points)
@@ -81,7 +85,7 @@ for t in range(l):
 		#plt.plot(data, 'o', label = 'buy', markevery = buy_points[:, 0].astype(int).tolist(), c = 'g')
 		#plt.plot(data, 'o', label = 'sell', markevery = sell_points[:, 0].astype(int).tolist(), c = 'r')
 		
-		plt.scatter(buy_points[:,0], buy_points[:, 1], s=buy_points[:, 2]*5, label='buy', c = 'g', marker='o', alpha=1, edgecolors='face', zorder=5)
-		plt.scatter(sell_points[:,0], sell_points[:, 1], s=sell_points[:, 2]*5, label='sell', c = 'r', marker='o', alpha=1, edgecolors='face', zorder=5)
+		plt.scatter(buy_points[:,0], buy_points[:, 1], s=buy_points[:, 2]*13, label='buy', c = 'g', marker='o', alpha=1, edgecolors='face', zorder=5)
+		plt.scatter(sell_points[:,0], sell_points[:, 1], s=sell_points[:, 2]*13, label='sell', c = 'r', marker='o', alpha=1, edgecolors='face', zorder=5)
 		plt.legend()
 		plt.savefig(result_dir + figure) 
