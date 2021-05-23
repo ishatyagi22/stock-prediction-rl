@@ -17,7 +17,7 @@ Application of Reinforcement learning, Q-learning and neural networks in stock t
    Buying ratio is fraction of cash balance that can be used to BUY stock. 
    Sell ratio is fraction of stock inventory that can sold.
 
-   1. Profit Without draw limit, sell and buy volume = maximum 1 stock each day
+   1. Profit Without draw limit, sell and buy volume = _maximum 1 stock per day_
 
       - Apple : Profit: $418.0 ![](https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AAPL_2019/10/AAPL/profit:418.0.png)
 
@@ -26,7 +26,7 @@ Application of Reinforcement learning, Q-learning and neural networks in stock t
       - Amazon : 
 
 
-   2. Profit with draw limit of $20000 and Volume ratio =
+   2. Profit with draw limit of $20000 and Volume = _maximum 1 stock per day_
 
       - Apple :
 
@@ -35,7 +35,7 @@ Application of Reinforcement learning, Q-learning and neural networks in stock t
       - Amazon : Profit: $1324.0 ![Amazon](https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AMZN_2019/20/AMZN/profit:1324.0.png)
 
 
-   3. Profit with draw limit of $20000 and Volume ratio =
+   3. Profit with draw limit of $20000 and Volume ratio = 0.25
 
       - Apple :
 
@@ -44,7 +44,7 @@ Application of Reinforcement learning, Q-learning and neural networks in stock t
       - Amazon : 
 
 
-   4. Profit with draw limit of $20000 and Volume ratio : 
+   4. Profit with draw limit of $20000 and Volume ratio : 0.5
 
       - Apple :
 
