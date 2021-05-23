@@ -13,41 +13,44 @@ https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/Profit%20vs
 
 
 
+2. Profits with different draw limit and buying and sell volume ratio. 
+   Buying ratio is fraction of cash balance that can be used to BUY stock. 
+   Sell ratio is fraction of stock inventory that can sold.
 
-2. Profit Without draw limit, sell and buy volume = 1 
+2.1 Profit Without draw limit, sell and buy volume = maximum 1 stock each day
 
-#Apple :
+- Apple : https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AAPL_2019/10/AAPL/profit:418.0.png
 
-#Google :
+- Google :
 
-#Amazon : 
-
-
-3. Profit with draw limit of $20000 and Volume ratio : 
-
-#Apple :
-
-#Google :
-
-#Amazon : 
+- Amazon : 
 
 
-4. Profit with draw limit of $20000 and Volume ratio : 
+2.2 Profit with draw limit of $20000 and Volume ratio =
 
-#Apple :
+- Apple :
 
-#Google :
+- Google :
 
-#Amazon : 
+- Amazon : https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/AMZN_2019/20/AMZN/profit:1324.0.png
 
 
-5. Profit with draw limit of $20000 and Volume ratio : 
+2.3 Profit with draw limit of $20000 and Volume ratio =
 
-#Apple :
+- Apple :
 
-#Google :
+- Google :
 
-#Amazon : 
+- Amazon : 
+
+
+2.4 Profit with draw limit of $20000 and Volume ratio : 
+
+- Apple :
+
+- Google :
+
+- Amazon : 
 
 
 
@@ -55,8 +58,13 @@ https://github.com/ishatyagi22/stock-prediction-rl/blob/main/results/Profit%20vs
 
 Training the model : Retreive training and test data, csv files from  Yahoo! Finance into **`data/`**
 
-Evaluation after completion( 200 episodes minimum of training : python evaluate.py ^GSPC_2011 model_ep1000
+```
+python train AAPL 10 20
+```
 
-
+Evaluation after completion( 20 episodes) minimum of training : python evaluate.py 
+```
+python evaluate.py AAPL_2019 model_ep20
+```
 
 
